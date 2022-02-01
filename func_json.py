@@ -24,7 +24,8 @@ def get_ingredients(x):
     return(details)
 
 def add_recipe(x):
-    data = __get_recipes()
+    # data = __get_recipes()
+    print('success')
 
 ### TEST
 # print(get_recipe_names())
