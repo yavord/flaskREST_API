@@ -1,4 +1,3 @@
-from urllib import response
 import requests
 import pprint
 
@@ -13,7 +12,7 @@ def fetchRecipes(url = 'http://127.0.0.1:3000/recipes'):
     pprint.pprint(data)
     print('Status: ' + str(response.status_code))
 
-def fetchIngredients(recipe = 'chai', url = 'http://127.0.0.1:3000/recipes/details/'):
+def fetchIngredients(url = 'http://127.0.0.1:3000/recipes/details/', recipe = 'chai'):
     response = requests.get(url+recipe)
     data = response.json()
 
@@ -21,10 +20,13 @@ def fetchIngredients(recipe = 'chai', url = 'http://127.0.0.1:3000/recipes/detai
     pprint.pprint(data)
     print('Status: ' + str(response.status_code))
 
-def addRecipe(url = 'http://127.0.0.1:3000/recipes'):
-    pass
+def addRecipe(url = 'http://127.0.0.1:3000/recipes', recipe={'test1':'test2'}):
+    response = requests.post(url=url, data=recipe)
+    print(response.text)
+    print(response.status_code)
 
 
 ### TEST
 # fetchRecipes()
 # fetchIngredients(recipe='garlicPasta')
+addRecipe()

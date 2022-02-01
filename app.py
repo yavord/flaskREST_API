@@ -12,7 +12,7 @@ def hello_world():
 @app.route("/recipes", methods=['GET','POST'])
 def recipes():
     if request.method == 'POST':
-        func_json.add_recipe()
+        return func_json.add_recipe()
     else:
         return jsonify(func_json.get_recipe_names())
 
