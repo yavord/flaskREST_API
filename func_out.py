@@ -22,8 +22,6 @@ def fetchIngredients(url = 'http://127.0.0.1:3000/recipes/details/', recipe = 'c
 
 def addRecipe(url = 'http://127.0.0.1:3000/recipes', recipe={'test1':'test2'}):
     response = requests.post(url=url, data=recipe)
-    print(response.text)
-    print(response.status_code)
 
 
 ### TEST
