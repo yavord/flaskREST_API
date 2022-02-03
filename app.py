@@ -6,7 +6,7 @@ import func_json
 app = Flask(__name__)
 
 @app.route("/")
-def hello_world():
+def home():
     return "<p>See: /recipes, /recipes/details/#recipeName#</p>"
 
 @app.route("/recipes", methods=['GET','POST'])
