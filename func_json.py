@@ -11,6 +11,9 @@ def __write_recipe(recipe):
         json_f.seek(0)
         json.dump(file_data, json_f, indent=2)
 
+def __check_if_exists(data, post):
+    any(item == post for item in data)
+
 def get_recipe_names():
     data = __get_recipes()
     recipeNames = {'recipeNames':[]}
@@ -31,8 +34,14 @@ def get_ingredients(x):
     return(details)
 
 def add_recipe(x):
-    __write_recipe(x)
-    print('writing complete')
+    data = __get_recipes()
+    error = {"error": "Recipe already exists"}
+    check = __check_if_exists(data=data, post=x)
+    if check == True:
+        return(error, 400)
+    elif check == False:
+        __write_recipe(x)
+        return("",201)
 
 ### TEST
 # print(get_recipe_names())
