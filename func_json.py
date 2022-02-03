@@ -12,7 +12,7 @@ def __write_recipe(recipe):
         json.dump(file_data, json_f, indent=2)
 
 def __check_if_exists(data, post):
-    any(item == post for item in data)
+    return(any(item == post for item in data))
 
 def get_recipe_names():
     data = __get_recipes()
@@ -46,3 +46,8 @@ def add_recipe(x):
 ### TEST
 # print(get_recipe_names())
 # print(get_ingredients('chai'))
+# __recipe_post = {"name": "butteredBagel", 
+#     "ingredients": ["1 bagel","butter"], 
+# 	"instructions": ["cut the bagel", "spread butter on bagel"] 
+# }
+# add_recipe(__recipe_post)
