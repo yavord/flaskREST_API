@@ -11,6 +11,9 @@ def __write_recipe(recipe):
         json_f.seek(0)
         json.dump(file_data, json_f, indent=2)
 
+def __update_recipe(recipe):
+    pass
+
 def __check_if_exists(data, post):
     return(any(item == post for item in data))
 
@@ -42,6 +45,16 @@ def add_recipe(x):
     elif check == False:
         __write_recipe(x)
         return("",201)
+
+def update_recipe(x):
+    data = __get_recipes()
+    error = {"error": "Recipe does not exist"}
+    check = __check_if_exists(data=data, post=x)
+    if check == True:
+        __update_recipe(x)
+        return("",204)
+    elif check == False:
+        return(error, 404)
 
 ### TEST
 # print(get_recipe_names())
